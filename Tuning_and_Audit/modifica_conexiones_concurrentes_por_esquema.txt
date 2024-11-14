@@ -1,0 +1,15 @@
+/* Modificar conexiones concurrentes por esquema
+/* Desarrollado por Francisco Gutierrez
+/* Para JM Multisistemas y Centralequipos
+/* Nota: 0 significa conexiones concurrentes ilimitadas
+
+USE <BD deseada> ;  
+GO  
+EXEC sp_configure 'show advanced options', 1;  
+GO  
+RECONFIGURE ;  
+GO  
+EXEC sp_configure 'user connections', 0 ;  
+GO  
+RECONFIGURE;  
+GO  

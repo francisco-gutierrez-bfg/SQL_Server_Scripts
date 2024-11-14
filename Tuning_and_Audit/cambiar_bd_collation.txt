@@ -1,0 +1,15 @@
+/* Cambiar y verificar parametro collation en BD
+/* Desarrollado por Francisco Gutierrez
+/* Para JM Multisistemas y Centralequipos
+
+USE master;  
+GO  
+ALTER DATABASE <BD deseada>  
+COLLATE <collation deseado> ;  
+GO  
+  
+--Verifica paraetro de collation en BD deseada.  
+SELECT name, collation_name  
+FROM sys.databases  
+WHERE name = <BD deseada>;  
+GO

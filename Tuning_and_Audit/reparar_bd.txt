@@ -1,0 +1,24 @@
+/* Reparar BDs basado en los dos siguientes casos.
+/* Desarrollado por Francisco Gutierrez
+/* Para JM Multisistemas y Centralequipos
+
+En caso de suspect db:
+==============================
+EXEC sp_resetstatus INDUGRAVAS;
+ALTER DATABASE INDUGRAVAS SET EMERGENCY
+DBCC checkdb(INDUGRAVAS)
+ALTER DATABASE INDUGRAVAS SET SINGLE_USER WITH ROLLBACK IMMEDIATE
+DBCC CheckDB (INDUGRAVAS, REPAIR_ALLOW_DATA_LOSS)
+ALTER DATABASE INDUGRAVAS SET MULTI_USER
+
+
+En caso de recovery pending:
+===========================
+ALTER DATABASE laserfiche SET EMERGENCY;
+GO
+ALTER DATABASE laserfiche set single_user
+GO
+DBCC CHECKDB (laserfiche, REPAIR_ALLOW_DATA_LOSS) WITH ALL_ERRORMSGS;
+GO
+ALTER DATABASE laserfiche set multi_user
+GO

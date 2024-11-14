@@ -1,0 +1,7 @@
+/* Usuarios conectados al servidor
+/* Desarrollado por Francisco Gutierrez
+/* Para JM Multisistemas y Centralequipos
+
+SELECT login_name ,COUNT(session_id) AS session_count   
+FROM sys.dm_exec_sessions   
+GROUP BY login_name;

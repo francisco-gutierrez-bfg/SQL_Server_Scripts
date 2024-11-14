@@ -1,0 +1,12 @@
+/* Configurar parámetro de memoria máxima a 50GB
+/* Desarrollado por Francisco Gutierrez
+/* Para JM Multisistemas y Centralequipos
+
+sp_configure 'show advanced options', 1;
+GO
+RECONFIGURE;
+GO
+sp_configure 'max server memory', 50960;
+GO
+RECONFIGURE;
+GO
